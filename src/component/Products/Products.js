@@ -11,8 +11,8 @@ const Products = (props) => {
             <div className='product-info'>
                 <p className='product-name'>{name}</p>
                 <p>Seller: {seller}</p>
-                <p><small>Price:{price}</small></p>
-                <p><small>Seller:{ratings}</small></p>
+                <p><small>Price: ${price}</small></p>
+                <p><small>Raiting:{ratings} Stars </small></p>
             </div>
             <button onClick={() => props.buttonClicked(props.product)} className='btn-cart'>
                 <p>Add To Card</p>
