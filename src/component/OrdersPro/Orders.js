@@ -1,9 +1,33 @@
 import React from 'react';
+import useCart from '../../Hooks/useCart';
+import useProducts from '../../Hooks/useProduct';
+import { removeFromDb } from '../../utilities/fakedb';
+import Order from '../Order/Order';
+import ReviewItem from '../ReviewItem/ReviewItem';
 
 const Orders = () => {
+    const [products, setProducts] = useProducts();
+    const [cart, setCart] = useCart(products);
+
+    const productRemove = product => {
+        const rest = cart.filter(item => item.id !== product.id);
+        setCart(rest)
+        removeFromDb(product.id)
+    }
     return (
-        <div>
-            <h1>Order</h1>
+        <div className='shop-container'>
+            <div className="review-item-container">
+                {
+                    cart.map(product => <ReviewItem
+                        key={product.id}
+                        product={product}
+                        productRemove={productRemove}
+                    ></ReviewItem>)
+                }
+            </div>
+            <div className="cart-container">
+                <Order cart={cart}></Order>
+            </div>
         </div>
     );
 };
