@@ -12,7 +12,6 @@ const LogIn = () => {
         signInWithEmailAndPassword,
         user,
         loading,
-        error,
     ] = useSignInWithEmailAndPassword(auth);
 
     const handleEmailBlur = event => {
