@@ -11,16 +11,16 @@ const Orders = () => {
     const [cart, setCart] = useCart(products);
 
     const productRemove = product => {
-        const rest = cart.filter(item => item.id !== product.id);
+        const rest = cart.filter(item => item._id !== product._id);
         setCart(rest)
-        removeFromDb(product.id)
+        removeFromDb(product._id)
     }
     return (
         <div className='shop-container'>
             <div className="review-item-container">
                 {
                     cart.map(product => <ReviewItem
-                        key={product.id}
+                        key={product._id}
                         product={product}
                         productRemove={productRemove}
                     ></ReviewItem>)

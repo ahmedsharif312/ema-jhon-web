@@ -11,6 +11,17 @@
     margin-left: 50px;
 }
 
+.pagination button {
+    border: 1px solid orangered;
+    border-radius: 2px;
+    margin-left: 5px;
+}
+
+.pagination .selected {
+    background-color: orange;
+    color: white;
+}
+
 .cart-container {
     background-color: rgba(255, 153, 0, 0.3);
 }
